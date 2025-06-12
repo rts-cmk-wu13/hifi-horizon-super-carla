@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalContext.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { user, setUser } = useContext(GlobalContext);
 
   return (
     <>
+      <h1>Velkommen {user && user.name}</h1>
+      <button onClick={() => setUser({ name: 'John Doe' })}>Set User</button>
 
     </>
   )
