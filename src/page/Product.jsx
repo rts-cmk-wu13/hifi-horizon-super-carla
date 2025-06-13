@@ -25,6 +25,7 @@ export default function Product() {
                             <li>model {product.model}</li>
                             <li>type {product.type}</li>
                             <li>power_output {product.power_output}</li>
+                            <li>power_output {product.power_output}</li>
                         </ul>
                     </li>
                 })}
