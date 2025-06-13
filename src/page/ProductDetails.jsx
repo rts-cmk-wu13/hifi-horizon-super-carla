@@ -1,7 +1,6 @@
 import { useParams, useSearchParams } from "react-router";
-import { useEffect } from "react";
 
-export default function PostId() {
+export default function ProductDetails() {
     const { id } = useParams();
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -12,7 +11,7 @@ export default function PostId() {
 
     return (
         <section>
-            <h2>Post</h2>
+            <h2>ProductDetails</h2>
             <h3> useParams ID: {id}</h3>
             <h3>Current filter: {searchParams.get("id")}</h3>
         </section>

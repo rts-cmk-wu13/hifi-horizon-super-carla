@@ -7,8 +7,9 @@ export default function Navaiagtion() {
             <nav className="navigation">
                 <ul>
                     <li><NavLink to={"/"} >Home</NavLink></li>
-                    <li><NavLink to={"/about"}>Aboute</NavLink></li>
-                    {/* <li><NavLink to={"/post/12"} >Post</NavLink></li> */}
+                    <li><NavLink to={"/product"}>Product</NavLink></li>
+                    <li><NavLink to={"/product-details"}>Product details</NavLink></li>
+
                 </ul>
             </nav>
         </>

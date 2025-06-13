@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import Home from './page/Home';
-import About from './page/About';
-import Post from './page/Post';
 import Layout from './layout';
+import Home from './page/Home';
+import Product from './page/Product';
+import ProductDetails from './page/ProductDetails';
 
 
 export default function Routes() {
@@ -13,9 +13,8 @@ export default function Routes() {
             element: <Layout />,
             children: [
                 { index: true, element: <Home /> },
-                { path: "about", element: <About /> },
-                { path: "post", element: <Post /> },
-                { path: "post/:id", element: <Post /> },
+                { path: "product", element: <Product /> },
+                { path: "product-details", element: <ProductDetails /> },
             ],
         },
     ]);
