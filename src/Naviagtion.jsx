@@ -1,5 +1,4 @@
 import { NavLink } from "react-router";
-import "./css/naviatio.css"
 
 export default function Navaiagtion() {
 
@@ -9,7 +8,7 @@ export default function Navaiagtion() {
                 <ul>
                     <li><NavLink to={"/"} >Home</NavLink></li>
                     <li><NavLink to={"/about"}>Aboute</NavLink></li>
-                    <li><NavLink to={"/post/12"} >Post</NavLink></li>
+                    {/* <li><NavLink to={"/post/12"} >Post</NavLink></li> */}
                 </ul>
             </nav>
         </>
