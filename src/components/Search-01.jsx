@@ -34,8 +34,8 @@ export default function Search({ searchType, onSearchResults }) {
                 }
             }
             )
-            setFilteredProducts(filterd);
-            onSearchResults?.(filterd)
+            setFilteredProducts(filterd)
+            // )
         }
     }, [search])
 
@@ -45,11 +45,24 @@ export default function Search({ searchType, onSearchResults }) {
                 <p>{errorKeyWord}</p>
 
             }
+            {/* <label htmlFor="brands">Søg efter {`${searchType}`}</label> */}
             <input type="text" id="brands" name="brands" placeholder="search product.." onChange={(element) => {
                 setSearch(element.target.value.toLowerCase())
             }} />
 
-
+            <ul>
+                {filteredProducts && filteredProducts.map((product) => {
+                    return <li key={product.model}>
+                        <h2>brand:{product.brand}</h2>
+                        <ul>
+                            <li>model {product.model}</li>
+                            <li>type {product.type}</li>
+                            <li>power_output {product.power_output}</li>
+                            <li>power_output {product.power_output}</li>
+                        </ul>
+                    </li>
+                })}
+            </ul>
         </section>
     )
 }
