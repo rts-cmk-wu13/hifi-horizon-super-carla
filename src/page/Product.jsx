@@ -1,36 +1,47 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import Search from "../components/Search-02"
 
 export default function Product() {
+    // const [serchResult, setSerchResult] = useState()
 
+    // const handleSearchResult = (filterd) => {
+    //     setSerchResult(filterd)
+    // }
 
-
-    const [procutsData, setProductsData] = useState([])
-    const url = "http://localhost:4000"
-    useEffect(() => {
-        fetch(`${url}/products`)
-            .then(respons => { return respons.json() })
-            .then(procutsData => { setProductsData(procutsData) })
-
-    }, [])
+    const [searchResults, setSearchResults] = useState([]);
 
 
     return (
-        <section>
-            <h1>Product</h1>
-            <ul>
-                {procutsData && procutsData.map((product) => {
-                    return <li key={product.model}>
-                        <h2>brand:{product.brand}</h2>
-                        <ul>
-                            <li>model {product.model}</li>
-                            <li>type {product.type}</li>
-                            <li>power_output {product.power_output}</li>
-                            <li>power_output {product.power_output}</li>
-                        </ul>
-                    </li>
-                })}
-            </ul>
-        </section>
+        <>
+            <div>
+                <h1>Produktoversigt</h1>
+
+                <Search
+                    searchType={["brand", "type", "model"]}
+                    onSearchResults={setSearchResults}
+                />
+
+                <section>
+
+                    <ul>
+                        {searchResults.map(product => (
+                            <li key={product.model}>
+                                <strong>{product.brand}</strong> - {product.model}
+                            </li>
+                        ))}
+                    </ul>
+                </section>
+            </div>
+
+            {/* <input
+                type="text"
+                placeholder="Søg produkt..."
+                onChange={(e) => onSearchChange(e.target.value.toLowerCase())}
+            /> */}
+            {/* <Search searchType={["brand", "model", "type", "price"]} onSearchResults={handleSearchResult}></Search> */}
+
+        </>
+
     )
 }
 
