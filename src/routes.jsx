@@ -4,9 +4,7 @@ import Home from './page/Home';
 import Product from './page/Product';
 import ProductDetails from './page/ProductDetails';
 
-
 export default function Routes() {
-
     const router = createBrowserRouter([
         {
             path: "/",

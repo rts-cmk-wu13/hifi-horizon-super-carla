@@ -1,36 +1,25 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
+import Search from "../components/Search-01"
 
 export default function Product() {
+    const [serchResult, setSerchResult] = useState()
 
-
-
-    const [procutsData, setProductsData] = useState([])
-    const url = "http://localhost:4000"
-    useEffect(() => {
-        fetch(`${url}/products`)
-            .then(respons => { return respons.json() })
-            .then(procutsData => { setProductsData(procutsData) })
-
-    }, [])
-
+    const handleSearchResult = (filterd) => {
+        setSerchResult(filterd)
+    }
 
     return (
-        <section>
-            <h1>Product</h1>
-            <ul>
-                {procutsData && procutsData.map((product) => {
-                    return <li key={product.model}>
-                        <h2>brand:{product.brand}</h2>
-                        <ul>
-                            <li>model {product.model}</li>
-                            <li>type {product.type}</li>
-                            <li>power_output {product.power_output}</li>
-                            <li>power_output {product.power_output}</li>
-                        </ul>
-                    </li>
-                })}
-            </ul>
-        </section>
+        <>
+
+            {/* <input
+                type="text"
+                placeholder="Søg produkt..."
+                onChange={(e) => onSearchChange(e.target.value.toLowerCase())}
+            /> */}
+            <Search searchType={["brand", "model", "type", "price"]} onSearchResults={handleSearchResult}></Search>
+
+        </>
+
     )
 }
 
